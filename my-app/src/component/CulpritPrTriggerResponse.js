@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import '../css/form.css';
 import '../css/table.css';
+import '../css/cards.css';
 
 export default class CulpritPrTriggerResponse extends React.Component {
     constructor(props){
@@ -26,23 +27,28 @@ export default class CulpritPrTriggerResponse extends React.Component {
       render() {
         return (
             <div className="container">
-                <div className="user-box">
-                    <table>
-                        <thead>
-                            <tr>
-                            <th>Name</th>
-                            <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td>Check Status URI</td>
-                            <td> <a onClick={this.handleStatusCheckUriClick}>{this.state.triggerApiResponseParams.statusQueryGetUri}</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                {console.log(this.props.triggerApiResponseParams)}
+                <div>
+                
+                {
+                this.props.triggerApiResponseParams.data.map(person => 
+                (        <div class="card">
+                            <div class="box">
+                            <div class="content">
+                                <h2>{person.YoE}</h2>
+                                <h6> YoE </h6>
+                                <h3>{person.first_name}</h3>
+
+                                <p>{person.languages_known.join(" ")}</p>
+                                <a href="#">Contact Dev</a>
+                            </div>
+                            </div>
+                        </div>
+                     )
+                )
+                }
                 </div>
-          </div>
+            </div>
         );
       }
 }
