@@ -80,7 +80,7 @@ class App extends React.Component {
       <div className="login-box">
         <h4>
           <a onClick={this.handleTriggerPrToolClick}>
-            Trigger Culprit PR Tool
+            Hiring Tool
           </a> | <a onClick={this.handleCheckStatusClick}>
                     Check Status
                  </a>
