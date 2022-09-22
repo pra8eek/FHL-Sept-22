@@ -16,7 +16,8 @@ class TriggerCulpritPR extends React.Component {
             sendEventPostUri: '',
             terminatePostUri: '',
             purgeHistoryDeleteUri: '',
-            restartPostUri: ''
+            restartPostUri: '',
+            candidates: []
           },
           showTriggerApiResponseTable: props.showTriggerApiResponseTable,
           triggerApiResponseStatus: ''
@@ -76,11 +77,14 @@ class TriggerCulpritPR extends React.Component {
           this.props.parentCallback({showTriggerApiResponseTable: true});
 
           const triggerApiResponseParams = {
-            candidates: data.responseHeader.response.docs
+            candidates: data.response.docs
           }
+          console.log(triggerApiResponseParams);
 
           this.setState({triggerApiResponseParams: triggerApiResponseParams});
+          console.log('inner');
         }
+        console.log('fetched data: response: ' + JSON.stringify(this.state.triggerApiResponseParams));
       }
 
       render() {

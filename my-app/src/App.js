@@ -81,7 +81,7 @@ class App extends React.Component {
         <h4>
           <a onClick={this.handleTriggerPrToolClick}>
             Hiring Tool
-          </a> | <a onClick={this.handleCheckStatusClick}>
+          </a>  <a onClick={this.handleCheckStatusClick}>
                     Check Status
                  </a>
         </h4>

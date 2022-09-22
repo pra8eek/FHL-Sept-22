@@ -19,6 +19,7 @@
           "id":"445f25f4-7235-41d7-8b51-5de2a3bbb710",
           "first_name":["Prateek"],
           "last_name":["Bhardwaj"],
+          "email_id": ["tanviagarwal@microsoft.com"],
           "profile.Resume_link":["uri"],
           "profile.languages_known":["Golang",
             "Java"],
@@ -42,6 +43,7 @@
             "C#",
             "Javascript"],
           "profile.interest_area":["backend"],
+          "email_id": ["tanviagarwal@microsoft.com"],
           "_version_":1744576152169611264},
         {
           "isIdentityVisible":[false],
@@ -59,6 +61,7 @@
             "Python",
             "C#",
             "Javascript"],
+          "email_id": ["tanviagarwal@microsoft.com"],
           "profile.interest_area":["backend"],
           "_version_":1744578397869178880}]
     }}
