@@ -1,16 +1,20 @@
 html {
-    height: 100%;
+    height: auto;
     scroll-behavior: smooth;
+    overflow: visible;
   }
   body {
     margin:0;
     padding:0;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
+    overflow: auto;
+    height: auto;
   }
   
   .login-box {
     position: absolute;
+    height: auto;
     top: 50%;
     left: 50%;
     width: 800px;
@@ -20,6 +24,8 @@ html {
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+    overflow: auto;
+
   }
   
   .login-box h2 {

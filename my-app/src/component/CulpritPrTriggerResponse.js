@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Profiler } from 'react';
 import '../css/form.css';
 import '../css/table.css';
+import '../css/cards.css';
 
 export default class CulpritPrTriggerResponse extends React.Component {
     constructor(props){
@@ -65,31 +66,28 @@ export default class CulpritPrTriggerResponse extends React.Component {
         );
         return (
             <div className="container">
-                {console.log(JSON.stringify( this.state.triggerApiResponseParams))}
-                <div className="user-box">
-                    <table>
-                        <thead>
-                            <tr>
-                            <th>Name</th>
-                            <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>{record}
+                {console.log(this.props.triggerApiResponseParams)}
+                <div>
+                
+                {
+                this.props.triggerApiResponseParams.data.map(person => 
+                (        <div class="card">
+                            <div class="box">
+                            <div class="content">
+                                <h2>{person.YoE}</h2>
+                                <h6> YoE </h6>
+                                <h3>{person.first_name}</h3>
 
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <a onClick={this.contactCandidate} >
-                            <span></span>
-                            <span></span>
-                            Contact candidate
-                        </a>
-                        <span></span><span></span><span></span>
-                        </tbody>
-                    </table>
+                                <p>{person.languages_known.join(" ")}</p>
+                                <a onClick={this.contactCandidate}> Contact Dev</a>
+                            </div>
+                            </div>
+                        </div>
+                     )
+                )
+                }
                 </div>
-          </div>
+            </div>
         );
       }
 }

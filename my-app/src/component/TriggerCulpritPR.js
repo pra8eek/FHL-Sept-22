@@ -1,14 +1,17 @@
 import React from 'react';
 import '../css/form.css';
 import CulpritPrTriggerResponse from './CulpritPrTriggerResponse';
-import Response from '../resources/mock-data.json'
+
+import response from "../resources/response.json";
 
 class TriggerCulpritPR extends React.Component {
     constructor(props){
         super();
         this.state = {
           triggerApiRequestParams: {
+
             query: '',
+
           },
           triggerApiResponseParams: {
             id: '',
@@ -35,9 +38,10 @@ class TriggerCulpritPR extends React.Component {
         }
       }
 
+
       handleQueryChange(event) {
         var triggerApiRequestParams = this.state.triggerApiRequestParams;
-        triggerApiRequestParams.config = event.target.value;
+        triggerApiRequestParams.Query = event.target.value;
         this.setState({triggerApiRequestParams});
       }
     
@@ -61,9 +65,6 @@ class TriggerCulpritPR extends React.Component {
 
         console.log('Triggering SuspectPR Tool with following request options: ' + JSON.stringify(requestOptions));
 
-        // const response = await fetch('https://culpritpranalyzer.azurewebsites.net/api/SuspectPrHttpTrigger', requestOptions);
-        // const data = await response.json();
-        // console.log('fetched data: response: ' + JSON.stringify(data));
 
         const data = Response;
         console.log('fetched data: response: ' + JSON.stringify(data));
@@ -77,6 +78,7 @@ class TriggerCulpritPR extends React.Component {
           this.props.parentCallback({showTriggerApiResponseTable: true});
 
           const triggerApiResponseParams = {
+
             candidates: data.response.docs
           }
           console.log(triggerApiResponseParams);
