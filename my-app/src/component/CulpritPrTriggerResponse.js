@@ -29,10 +29,11 @@ export default class CulpritPrTriggerResponse extends React.Component {
         event.preventDefault();
         this.setState({checkStatus: true});
         console.log('Contacted candidate ');
+        console.log('this.state.triggerApiResponseParams : ', this.state.triggerApiResponseParams);
 
         var body = {
-            "CandidateEmailID": this.state.triggerApiResponseParams.candidates[0].email_id[0],
-            "RecruiterEmailID": "tanviagarwal@microsoft.com",
+            "CandidateEmailID": this.state.triggerApiResponseParams.data[0].email_id[0],
+            "RecruiterEmailID": "prbhardwaj@microsoft.com",
             "IsCandidate": "false",
             "IsCandidateInterested": "false",
             "JDLink": "https://careers.microsoft.com/i/us/en/job/1467744/Cloud-Solution-Architecture"
@@ -55,15 +56,15 @@ export default class CulpritPrTriggerResponse extends React.Component {
       }
 
       render() {
-        let candidate = this.state.triggerApiResponseParams.candidates[0];
-        let record = Object.keys(candidate).map( key => {
-            return (<tr>
-                    <td>{key}</td>
-                    <td>{(candidate.isIdentityVisible && !(key === "first_name" || key === "last_name" || key === "email_id")) 
-                    ? JSON.stringify(candidate[key]) : "Hidden"}</td>
-                </tr>)
-        }
-        );
+        // let candidate = this.state.triggerApiResponseParams.candidates[0];
+        // let record = Object.keys(candidate).map( key => {
+        //     return (<tr>
+        //             <td>{key}</td>
+        //             <td>{(candidate.isIdentityVisible && !(key === "first_name" || key === "last_name" || key === "email_id")) 
+        //             ? JSON.stringify(candidate[key]) : "Hidden"}</td>
+        //         </tr>)
+        // }
+        // );
         return (
             <div className="container">
                 {console.log(this.props.triggerApiResponseParams)}
@@ -76,7 +77,7 @@ export default class CulpritPrTriggerResponse extends React.Component {
                             <div class="content">
                                 <h2>{person.YoE}</h2>
                                 <h6> YoE </h6>
-                                <h3>{person.first_name}</h3>
+                                <h3>{person.isIdentityVisible[0] ? person.first_name : "Hidden"}</h3>
 
                                 <p>{person.languages_known.join(" ")}</p>
                                 <a onClick={this.contactCandidate}> Contact Dev</a>

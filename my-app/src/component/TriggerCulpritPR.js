@@ -66,7 +66,7 @@ class TriggerCulpritPR extends React.Component {
         console.log('Triggering SuspectPR Tool with following request options: ' + JSON.stringify(requestOptions));
 
 
-        const data = Response;
+        const data = response;
         console.log('fetched data: response: ' + JSON.stringify(data));
 
         if (data !== null) {
@@ -79,7 +79,7 @@ class TriggerCulpritPR extends React.Component {
 
           const triggerApiResponseParams = {
 
-            candidates: data.response.docs
+            data: data.response.docs
           }
           console.log(triggerApiResponseParams);
 
